@@ -1,4 +1,4 @@
-using FinanceTrackerAPI.Domain.Entities;
+using FinanceTrackerAPI.Domain;
 
 namespace FinanceTrackerAPI.Domain;
 
@@ -7,7 +7,7 @@ public class User : BaseEntity
   public Email Email {get; private set;} = null!;
 
   public PasswordHash PasswordHash {get; private set;} = null!;
-    public ICollection<Profile> Profiles { get; set; } = new List<Profile>();
+    public ICollection<Profile> Profiles { get; private set; } = new List<Profile>();
 
   private User() : base()
   {
