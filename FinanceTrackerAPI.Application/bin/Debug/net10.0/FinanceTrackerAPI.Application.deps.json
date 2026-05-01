@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "FinanceTrackerAPI.Application/1.0.0": {
+        "dependencies": {
+          "FinanceTrackerAPI.Domain": "1.0.0"
+        },
+        "runtime": {
+          "FinanceTrackerAPI.Application.dll": {}
+        }
+      },
+      "FinanceTrackerAPI.Domain/1.0.0": {
+        "runtime": {
+          "FinanceTrackerAPI.Domain.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "FinanceTrackerAPI.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FinanceTrackerAPI.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

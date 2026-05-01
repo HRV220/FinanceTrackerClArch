@@ -1,0 +1,11 @@
+D:\ALL\ST\4_course\8_semestr\FinanceTrackerCleanArchitecture\FinanceTrackerAPI.Domain\bin\Debug\net10.0\FinanceTrackerAPI.Domain.deps.json
+D:\ALL\ST\4_course\8_semestr\FinanceTrackerCleanArchitecture\FinanceTrackerAPI.Domain\bin\Debug\net10.0\FinanceTrackerAPI.Domain.dll
+D:\ALL\ST\4_course\8_semestr\FinanceTrackerCleanArchitecture\FinanceTrackerAPI.Domain\bin\Debug\net10.0\FinanceTrackerAPI.Domain.pdb
+D:\ALL\ST\4_course\8_semestr\FinanceTrackerCleanArchitecture\FinanceTrackerAPI.Domain\obj\Debug\net10.0\FinanceTrackerAPI.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\ALL\ST\4_course\8_semestr\FinanceTrackerCleanArchitecture\FinanceTrackerAPI.Domain\obj\Debug\net10.0\FinanceTrackerAPI.Domain.AssemblyInfoInputs.cache
+D:\ALL\ST\4_course\8_semestr\FinanceTrackerCleanArchitecture\FinanceTrackerAPI.Domain\obj\Debug\net10.0\FinanceTrackerAPI.Domain.AssemblyInfo.cs
+D:\ALL\ST\4_course\8_semestr\FinanceTrackerCleanArchitecture\FinanceTrackerAPI.Domain\obj\Debug\net10.0\FinanceTrackerAPI.Domain.csproj.CoreCompileInputs.cache
+D:\ALL\ST\4_course\8_semestr\FinanceTrackerCleanArchitecture\FinanceTrackerAPI.Domain\obj\Debug\net10.0\FinanceTrackerAPI.Domain.dll
+D:\ALL\ST\4_course\8_semestr\FinanceTrackerCleanArchitecture\FinanceTrackerAPI.Domain\obj\Debug\net10.0\refint\FinanceTrackerAPI.Domain.dll
+D:\ALL\ST\4_course\8_semestr\FinanceTrackerCleanArchitecture\FinanceTrackerAPI.Domain\obj\Debug\net10.0\FinanceTrackerAPI.Domain.pdb
+D:\ALL\ST\4_course\8_semestr\FinanceTrackerCleanArchitecture\FinanceTrackerAPI.Domain\obj\Debug\net10.0\ref\FinanceTrackerAPI.Domain.dll
