@@ -9,3 +9,4 @@ D:\ALL\ST\4_course\8_semestr\FinanceTrackerCleanArchitecture\FinanceTrackerAPI.D
 D:\ALL\ST\4_course\8_semestr\FinanceTrackerCleanArchitecture\FinanceTrackerAPI.Domain\obj\Debug\net10.0\refint\FinanceTrackerAPI.Domain.dll
 D:\ALL\ST\4_course\8_semestr\FinanceTrackerCleanArchitecture\FinanceTrackerAPI.Domain\obj\Debug\net10.0\FinanceTrackerAPI.Domain.pdb
 D:\ALL\ST\4_course\8_semestr\FinanceTrackerCleanArchitecture\FinanceTrackerAPI.Domain\obj\Debug\net10.0\ref\FinanceTrackerAPI.Domain.dll
+D:\ALL\ST\4_course\8_semestr\FinanceTrackerCleanArchitecture\FinanceTrackerAPI.Domain\obj\Debug\net10.0\FinanceTrackerAPI.Domain.sourcelink.json

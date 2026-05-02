@@ -1,0 +1,13 @@
+# Сборка
+bin/
+obj/
+appsettings.Development.json
+
+#Visual Studio
+*.user
+*.suo
+.vs/
+*.vspscc
+
+#Secrets
+appsettings.Development.json
