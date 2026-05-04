@@ -13,9 +13,6 @@ public class PasswordHasher : IPasswordHasher
 
   public bool Verify(string password, string hash)
   {
-    if(BCrypt.Net.BCrypt.EnhancedVerify(password, hash))
-      return true;
-    else
-      return false;
+    return BCrypt.Net.BCrypt.EnhancedVerify(password, hash);
   }
 }

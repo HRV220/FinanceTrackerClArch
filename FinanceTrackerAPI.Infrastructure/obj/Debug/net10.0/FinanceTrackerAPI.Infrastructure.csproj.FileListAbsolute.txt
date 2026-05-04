@@ -15,3 +15,4 @@ D:\ALL\ST\4_course\8_semestr\FinanceTrackerCleanArchitecture\FinanceTrackerAPI.I
 D:\ALL\ST\4_course\8_semestr\FinanceTrackerCleanArchitecture\FinanceTrackerAPI.Infrastructure\obj\Debug\net10.0\refint\FinanceTrackerAPI.Infrastructure.dll
 D:\ALL\ST\4_course\8_semestr\FinanceTrackerCleanArchitecture\FinanceTrackerAPI.Infrastructure\obj\Debug\net10.0\FinanceTrackerAPI.Infrastructure.pdb
 D:\ALL\ST\4_course\8_semestr\FinanceTrackerCleanArchitecture\FinanceTrackerAPI.Infrastructure\obj\Debug\net10.0\ref\FinanceTrackerAPI.Infrastructure.dll
+D:\ALL\ST\4_course\8_semestr\FinanceTrackerCleanArchitecture\FinanceTrackerAPI.Infrastructure\obj\Debug\net10.0\FinanceTrackerAPI.Infrastructure.sourcelink.json

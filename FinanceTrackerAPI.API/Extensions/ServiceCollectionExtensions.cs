@@ -1,4 +1,5 @@
 using FinanceTrackerAPI.Application.Interfaces;
+using FinanceTrackerAPI.Application.Users.Commands.LoginUser;
 using FinanceTrackerAPI.Application.Users.Commands.RegisterUser;
 using FinanceTrackerAPI.Infrastructure.Persistence;
 using FinanceTrackerAPI.Infrastructure.Persistence.Repositories;
@@ -15,11 +16,14 @@ public static class ServiceCollectionExtensions
     options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
     services.AddScoped<IUserRepository, UserRepository>();
     services.AddScoped<IPasswordHasher, PasswordHasher>();
+    services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
+
     return services;
   }
   public static IServiceCollection AddApplication(this IServiceCollection services)
   {
     services.AddScoped<RegisterUserCommandHandler>();
+    services.AddScoped<LoginUserCommandHandler>();
     return services;
   }
 }
