@@ -14,7 +14,6 @@ public class RegisterUserCommandHandler
   {
     _userRepository = userRepository;
     _passwordHasher = passwordHasher;
-
   }
 
   public async Task<Result<Guid>> Handle(RegisterUserCommand command)
