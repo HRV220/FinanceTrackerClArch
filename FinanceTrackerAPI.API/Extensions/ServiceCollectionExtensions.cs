@@ -1,3 +1,4 @@
+using FinanceTrackerAPI.Domain.Interfaces;
 using FinanceTrackerAPI.Application.Interfaces;
 using FinanceTrackerAPI.Application.Users.Commands.LoginUser;
 using FinanceTrackerAPI.Application.Users.Commands.RegisterUser;

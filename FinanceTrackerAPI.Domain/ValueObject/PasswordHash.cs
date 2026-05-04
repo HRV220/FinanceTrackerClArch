@@ -1,3 +1,5 @@
+using FinanceTrackerAPI.Domain.Common;
+namespace FinanceTrackerAPI.Domain.ValueObject;
 
 public sealed record PasswordHash
 {

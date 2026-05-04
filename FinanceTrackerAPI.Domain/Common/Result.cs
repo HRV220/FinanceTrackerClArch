@@ -1,4 +1,4 @@
-
+namespace FinanceTrackerAPI.Domain.Common;
 public class Result<T>
 {
   public T? Value {get; private set;}

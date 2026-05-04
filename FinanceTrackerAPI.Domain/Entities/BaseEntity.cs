@@ -1,4 +1,4 @@
-﻿namespace FinanceTrackerAPI.Domain;
+﻿namespace FinanceTrackerAPI.Domain.Entities;
 
 public abstract class BaseEntity
 {

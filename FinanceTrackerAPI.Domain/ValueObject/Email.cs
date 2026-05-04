@@ -1,8 +1,10 @@
+using FinanceTrackerAPI.Domain.Common;
+namespace FinanceTrackerAPI.Domain.ValueObject;
 public sealed record Email
 {
   public string Value {get;}
 
-  public Email(string value)
+  private Email(string value)
   {
     Value = value;
   }

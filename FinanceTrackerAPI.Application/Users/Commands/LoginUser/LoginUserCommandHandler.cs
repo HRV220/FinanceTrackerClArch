@@ -1,5 +1,8 @@
 using FinanceTrackerAPI.Application.Interfaces;
-using FinanceTrackerAPI.Domain;
+using FinanceTrackerAPI.Domain.Interfaces;
+using FinanceTrackerAPI.Domain.Common;
+using FinanceTrackerAPI.Domain.ValueObject;
+
 
 namespace FinanceTrackerAPI.Application.Users.Commands.LoginUser;
 

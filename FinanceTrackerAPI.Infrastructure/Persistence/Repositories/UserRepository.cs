@@ -1,6 +1,7 @@
-using FinanceTrackerAPI.Domain;
-using FinanceTrackerAPI.Infrastructure.Persistence;
+using FinanceTrackerAPI.Domain.Interfaces;
+using FinanceTrackerAPI.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using FinanceTrackerAPI.Domain.ValueObject;
 
 namespace FinanceTrackerAPI.Infrastructure.Persistence.Repositories;
 
@@ -30,6 +31,7 @@ public class UserRepository : IUserRepository
   {
     return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
   }
+
 
   public async Task<User?> GetByIdAsync(Guid id)
   {

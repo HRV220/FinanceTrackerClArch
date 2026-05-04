@@ -1,4 +1,4 @@
-using FinanceTrackerAPI.Domain;
+using FinanceTrackerAPI.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace FinanceTrackerAPI.Infrastructure.Persistence;
