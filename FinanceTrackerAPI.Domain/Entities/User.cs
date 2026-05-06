@@ -4,9 +4,10 @@ namespace FinanceTrackerAPI.Domain.Entities;
 public class User : BaseEntity
 {
   public Email Email {get; private set;} = null!;
-
   public PasswordHash PasswordHash {get; private set;} = null!;
-    public IReadOnlyCollection<Profile> Profiles { get; private set; } = [];
+
+  private readonly List<Profile> _profiles = [];
+  public IReadOnlyCollection<Profile> Profiles => _profiles.AsReadOnly();
 
   private User() : base()
   {

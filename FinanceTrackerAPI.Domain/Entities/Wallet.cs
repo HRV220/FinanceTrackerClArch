@@ -5,6 +5,7 @@ namespace FinanceTrackerAPI.Domain.Entities;
 
 public class Wallet : BaseEntity
 {
+  public Profile Profile {get; private set;} = null!;
   public Guid ProfileId {get; private set;}
   public string Name {get; private set;} = string.Empty;
   public string? Icon {get; private set;}

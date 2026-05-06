@@ -7,6 +7,9 @@ public class Profile : BaseEntity
   public bool IsActive { get; private set; } = true;
   public User User { get; private set; } = null!;
 
+  private readonly List<Wallet> _wallets = new();
+  public IReadOnlyCollection<Wallet> Wallets => _wallets.AsReadOnly();
+
   private Profile() : base() { }
 
   private Profile(Guid id, Guid userId, string name) : base(id)

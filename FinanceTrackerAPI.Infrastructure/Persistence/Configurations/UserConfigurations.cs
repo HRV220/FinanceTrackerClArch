@@ -17,5 +17,6 @@ public class UserConfigurations : IEntityTypeConfiguration<User>
     {
       hash.Property(h => h.Value).HasColumnName("PasswordHash");
     });
+    builder.HasMany(u => u.Profiles).WithOne(p => p.User).HasForeignKey(p => p.UserId);
   }
 }
