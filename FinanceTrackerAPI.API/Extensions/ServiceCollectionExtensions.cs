@@ -6,6 +6,15 @@ using FinanceTrackerAPI.Application.Users.Commands.DeleteUser;
 using FinanceTrackerAPI.Application.Users.Commands.ChangeEmail;
 using FinanceTrackerAPI.Application.Users.Commands.ChangePassword;
 using FinanceTrackerAPI.Application.Users.Queries.GetUserById;
+using FinanceTrackerAPI.Application.Wallets.Commands.ChangeCurrency;
+using FinanceTrackerAPI.Application.Wallets.Commands.ChangeIcon;
+using FinanceTrackerAPI.Application.Wallets.Commands.ChangeNote;
+using FinanceTrackerAPI.Application.Wallets.Commands.ChangeSortOrder;
+using FinanceTrackerAPI.Application.Wallets.Commands.CreateWallet;
+using FinanceTrackerAPI.Application.Wallets.Commands.DeleteWallet;
+using FinanceTrackerAPI.Application.Wallets.Commands.RenameWallet;
+using FinanceTrackerAPI.Application.Wallets.Queries.GetWalletById;
+using FinanceTrackerAPI.Application.Wallets.Queries.GetWalletsByProfileId;
 using FinanceTrackerAPI.Application.Profiles.Commands.CreateProfile;
 using FinanceTrackerAPI.Application.Profiles.Commands.DeleteProfile;
 using FinanceTrackerAPI.Application.Profiles.Commands.RenameProfile;
@@ -27,6 +36,7 @@ public static class ServiceCollectionExtensions
     options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
     services.AddScoped<IUserRepository, UserRepository>();
     services.AddScoped<IProfileRepository, ProfileRepository>();
+    services.AddScoped<IWalletRepository, WalletRepository>();
     services.AddScoped<IPasswordHasher, PasswordHasher>();
     services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
 
@@ -46,6 +56,15 @@ public static class ServiceCollectionExtensions
     services.AddScoped<ToggleProfileActiveCommandHandler>();
     services.AddScoped<GetProfileByIdQueryHandler>();
     services.AddScoped<GetProfilesByUserIdQueryHandler>();
+    services.AddScoped<CreateWalletCommandHandler>();
+    services.AddScoped<DeleteWalletCommandHandler>();
+    services.AddScoped<RenameWalletCommandHandler>();
+    services.AddScoped<ChangeSortOrderCommandHandler>();
+    services.AddScoped<ChangeIconCommandHandler>();
+    services.AddScoped<ChangeCurrencyCommandHandler>();
+    services.AddScoped<ChangeNoteCommandHandler>();
+    services.AddScoped<GetWalletByIdQueryHandler>();
+    services.AddScoped<GetWalletsByProfileIdQueryHandler>();
     return services;
   }
 }
