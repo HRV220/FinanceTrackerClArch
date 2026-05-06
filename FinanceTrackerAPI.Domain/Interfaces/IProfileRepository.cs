@@ -4,7 +4,7 @@ public interface IProfileRepository
 {
   Task<Profile?> GetByIdProfileAsync(Guid id);
   Task<IEnumerable<Profile>> GetByUserIdProfilesAsync(Guid userId);
-  Task DeleteAsync(Guid id);
+  Task DeleteAsync(Profile profile);
   Task UpdateProfileAsync(Profile profile);
   Task AddProfileAsync(Profile profile);
 }

@@ -19,11 +19,9 @@ public class UserRepository : IUserRepository
     await _context.SaveChangesAsync();
   }
 
-  public async Task DeleteUserAsync(Guid id)
+  public async Task DeleteUserAsync(User user)
   {
-    var deleteUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
-    if (deleteUser is null) return;
-    _context.Users.Remove(deleteUser!);
+    _context.Users.Remove(user);
     await _context.SaveChangesAsync();
   }
 

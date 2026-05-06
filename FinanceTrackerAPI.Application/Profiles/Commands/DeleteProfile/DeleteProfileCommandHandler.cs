@@ -1,0 +1,25 @@
+using FinanceTrackerAPI.Domain.Common;
+using FinanceTrackerAPI.Domain.Interfaces;
+
+
+namespace FinanceTrackerAPI.Application.Profiles.Commands.DeleteProfile;
+
+public class DeleteProfileCommandHandler
+{
+  private readonly IProfileRepository _profileRepository;
+
+  public DeleteProfileCommandHandler(IProfileRepository profileRepository)
+  {
+    _profileRepository = profileRepository;
+  }
+
+  public async Task<Result<bool>> Handle(DeleteProfileCommand command)
+  {
+    var profile = await _profileRepository.GetByIdProfileAsync(command.Id);
+    if (profile is null)
+      return Result<bool>.Failure(new DomainError("Profile.NotFound", "Profile not found."));
+
+    await _profileRepository.DeleteAsync(profile);
+    return Result<bool>.Success(true);
+  }
+}
