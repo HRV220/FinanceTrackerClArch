@@ -1,39 +1,40 @@
 using FinanceTrackerAPI.Domain.Common;
-using FinanceTrackerAPI.Domain.ValueObject;
 
 namespace FinanceTrackerAPI.Domain.Entities;
 
 public class Wallet : BaseEntity
 {
-  public Profile Profile {get; private set;} = null!;
-  public Guid ProfileId {get; private set;}
-  public string Name {get; private set;} = string.Empty;
-  public string? Icon {get; private set;}
-  public int SortOrder {get; private set;}
-  public Currency Currency {get; private set;} = null!;
-  public decimal InitialBalance {get; private set;} = 0;
-public string? Note {get; private set;} = null;
-  public bool IsArchived { get; private set;} = false;
+  public Profile Profile { get; private set; } = null!;
+  public Guid ProfileId { get; private set; }
+  public string Name { get; private set; } = string.Empty;
+  public string? Icon { get; private set; }
+  public int SortOrder { get; private set; }
+  public Currency Currency { get; private set; } = null!;
+  public Guid CurrencyId { get; private set; }
+  public decimal InitialBalance { get; private set; } = 0;
+  public string? Note { get; private set; } = null;
+  public bool IsArchived { get; private set; } = false;
 
-  private Wallet() : base()
-  {
-    
-  }
-  private Wallet(Guid id, Guid profileId, string name, string? icon, int sortOrder, Currency currency, decimal initialBalance, string? note) : base(id)
+  private Wallet() : base() { }
+
+  private Wallet(Guid id, Guid profileId, string name, string? icon, int sortOrder, Guid currencyId, decimal initialBalance, string? note) : base(id)
   {
     ProfileId = profileId;
     Name = name;
     Icon = icon;
     SortOrder = sortOrder;
-    Currency = currency;
+    CurrencyId = currencyId;
     InitialBalance = initialBalance;
     Note = note;
   }
 
-  public static Result<Wallet> Create(Guid profileId, string name, int sortOrder, Currency currency, decimal initialBalance, string? icon = null, string? note = null)
+  public static Result<Wallet> Create(Guid profileId, string name, int sortOrder, Guid currencyId, decimal initialBalance, string? icon = null, string? note = null)
   {
     if (profileId == Guid.Empty)
       return Result<Wallet>.Failure(new DomainError("Wallet.InvalidProfileId", "ProfileId is required."));
+
+    if (currencyId == Guid.Empty)
+      return Result<Wallet>.Failure(new DomainError("Wallet.InvalidCurrencyId", "CurrencyId is required."));
 
     if (string.IsNullOrWhiteSpace(name))
       return Result<Wallet>.Failure(new DomainError("Wallet.InvalidName", "Name is required."));
@@ -44,7 +45,7 @@ public string? Note {get; private set;} = null;
     if (sortOrder < 0)
       return Result<Wallet>.Failure(new DomainError("Wallet.InvalidSortOrder", "SortOrder must be 0 or greater."));
 
-    return Result<Wallet>.Success(new Wallet(Guid.NewGuid(), profileId, name, icon, sortOrder, currency, initialBalance, note));
+    return Result<Wallet>.Success(new Wallet(Guid.NewGuid(), profileId, name, icon, sortOrder, currencyId, initialBalance, note));
   }
 
   public Result<bool> Rename(string newName)
@@ -73,9 +74,9 @@ public string? Note {get; private set;} = null;
     SetUpdated();
   }
 
-  public void ChangeCurrency(Currency newCurrency)
+  public void ChangeCurrency(Guid newCurrencyId)
   {
-    Currency = newCurrency;
+    CurrencyId = newCurrencyId;
     SetUpdated();
   }
 

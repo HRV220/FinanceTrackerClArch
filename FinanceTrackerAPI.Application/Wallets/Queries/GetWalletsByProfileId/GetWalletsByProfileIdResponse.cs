@@ -1,5 +1,3 @@
-using FinanceTrackerAPI.Domain.ValueObject;
-
 namespace FinanceTrackerAPI.Application.Wallets.Queries.GetWalletsByProfileId;
 
 public record GetWalletsByProfileIdResponse(
@@ -8,7 +6,7 @@ public record GetWalletsByProfileIdResponse(
   string Name,
   string? Icon,
   int SortOrder,
-  CurrencyCode Currency,
+  Guid CurrencyId,
   decimal InitialBalance,
   string? Note,
   bool IsArchived);

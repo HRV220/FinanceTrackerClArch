@@ -37,7 +37,7 @@ public class WalletRepository : IWalletRepository
         .SetProperty(w => w.Name, wallet.Name)
         .SetProperty(w => w.Icon, wallet.Icon)
         .SetProperty(w => w.SortOrder, wallet.SortOrder)
-        .SetProperty(w => w.Currency.Code, wallet.Currency.Code)
+        .SetProperty(w => w.CurrencyId, wallet.CurrencyId)
         .SetProperty(w => w.Note, wallet.Note)
         .SetProperty(w => w.IsArchived, wallet.IsArchived)
         .SetProperty(w => w.UpdatedAt, DateTime.UtcNow));

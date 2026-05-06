@@ -24,7 +24,7 @@ public class GetWalletByIdQueryHandler
       wallet.Name,
       wallet.Icon,
       wallet.SortOrder,
-      wallet.Currency.Code,
+      wallet.CurrencyId,
       wallet.InitialBalance,
       wallet.Note,
       wallet.IsArchived));

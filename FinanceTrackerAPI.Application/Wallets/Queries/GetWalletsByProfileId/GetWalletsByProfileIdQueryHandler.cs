@@ -21,7 +21,7 @@ public class GetWalletsByProfileIdQueryHandler
       w.Name,
       w.Icon,
       w.SortOrder,
-      w.Currency.Code,
+      w.CurrencyId,
       w.InitialBalance,
       w.Note,
       w.IsArchived));

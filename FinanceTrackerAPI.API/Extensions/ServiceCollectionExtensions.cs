@@ -21,6 +21,11 @@ using FinanceTrackerAPI.Application.Profiles.Commands.RenameProfile;
 using FinanceTrackerAPI.Application.Profiles.Commands.ToggleProfileActive;
 using FinanceTrackerAPI.Application.Profiles.Queries.GetProfileById;
 using FinanceTrackerAPI.Application.Profiles.Queries.GetProfilesByUserId;
+using FinanceTrackerAPI.Application.Units.Commands.CreateUnit;
+using FinanceTrackerAPI.Application.Units.Commands.DeleteUnit;
+using FinanceTrackerAPI.Application.Units.Commands.RenameUnit;
+using FinanceTrackerAPI.Application.Units.Queries.GetAllUnits;
+using FinanceTrackerAPI.Application.Units.Queries.GetUnitsByProfileId;
 using FinanceTrackerAPI.Infrastructure.Persistence;
 using FinanceTrackerAPI.Infrastructure.Persistence.Repositories;
 using FinanceTrackerAPI.Infrastructure.Services;
@@ -37,6 +42,9 @@ public static class ServiceCollectionExtensions
     services.AddScoped<IUserRepository, UserRepository>();
     services.AddScoped<IProfileRepository, ProfileRepository>();
     services.AddScoped<IWalletRepository, WalletRepository>();
+    services.AddScoped<ICurrencyRepository, CurrencyRepository>();
+    services.AddScoped<IUnitRepository, UnitRepository>();
+
     services.AddScoped<IPasswordHasher, PasswordHasher>();
     services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
 
@@ -65,6 +73,11 @@ public static class ServiceCollectionExtensions
     services.AddScoped<ChangeNoteCommandHandler>();
     services.AddScoped<GetWalletByIdQueryHandler>();
     services.AddScoped<GetWalletsByProfileIdQueryHandler>();
+    services.AddScoped<CreateUnitCommandHandler>();
+    services.AddScoped<DeleteUnitCommandHandler>();
+    services.AddScoped<RenameUnitCommandHandler>();
+    services.AddScoped<GetAllUnitsQueryHandler>();
+    services.AddScoped<GetUnitsByProfileIdQueryHandler>();
     return services;
   }
 }

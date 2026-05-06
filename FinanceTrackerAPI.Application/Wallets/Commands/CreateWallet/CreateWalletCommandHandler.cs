@@ -1,7 +1,6 @@
 using FinanceTrackerAPI.Domain.Common;
 using FinanceTrackerAPI.Domain.Entities;
 using FinanceTrackerAPI.Domain.Interfaces;
-using FinanceTrackerAPI.Domain.ValueObject;
 
 namespace FinanceTrackerAPI.Application.Wallets.Commands.CreateWallet;
 
@@ -9,11 +8,13 @@ public class CreateWalletCommandHandler
 {
   private readonly IWalletRepository _walletRepository;
   private readonly IProfileRepository _profileRepository;
+  private readonly ICurrencyRepository _currencyRepository;
 
-  public CreateWalletCommandHandler(IWalletRepository walletRepository, IProfileRepository profileRepository)
+  public CreateWalletCommandHandler(IWalletRepository walletRepository, IProfileRepository profileRepository, ICurrencyRepository currencyRepository)
   {
     _walletRepository = walletRepository;
     _profileRepository = profileRepository;
+    _currencyRepository = currencyRepository;
   }
 
   public async Task<Result<Guid>> Handle(CreateWalletCommand command)
@@ -22,13 +23,15 @@ public class CreateWalletCommandHandler
     if (profile is null)
       return Result<Guid>.Failure(new DomainError("Wallet.ProfileNotFound", "Profile not found."));
 
-    var currency = Currency.Create(command.Currency);
+    var currency = await _currencyRepository.GetByIdAsync(command.CurrencyId);
+    if (currency is null)
+      return Result<Guid>.Failure(new DomainError("Wallet.CurrencyNotFound", "Currency not found."));
 
     var wallet = Wallet.Create(
       command.ProfileId,
       command.Name,
       command.SortOrder,
-      currency.Value!,
+      command.CurrencyId,
       command.InitialBalance,
       command.Icon,
       command.Note);

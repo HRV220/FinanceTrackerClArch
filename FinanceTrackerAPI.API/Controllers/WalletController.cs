@@ -102,9 +102,9 @@ public class WalletController : ControllerBase
   }
 
   [HttpPatch("{id}/currency")]
-  public async Task<IActionResult> ChangeCurrency(Guid id, [FromBody] ChangeCurrencyCommand command)
+  public async Task<IActionResult> ChangeCurrency(Guid id, [FromBody] Guid newCurrencyId)
   {
-    var result = await _changeCurrencyHandler.Handle(command with { Id = id });
+    var result = await _changeCurrencyHandler.Handle(new ChangeCurrencyCommand(id, newCurrencyId));
     if (result.IsFailure)
       return BadRequest(result.Error);
     return NoContent();

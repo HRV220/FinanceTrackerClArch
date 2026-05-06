@@ -10,6 +10,9 @@ public class Profile : BaseEntity
   private readonly List<Wallet> _wallets = new();
   public IReadOnlyCollection<Wallet> Wallets => _wallets.AsReadOnly();
 
+  private readonly List<Unit> _units = new();
+  public IReadOnlyCollection<Unit> Units => _units.AsReadOnly();
+
   private Profile() : base() { }
 
   private Profile(Guid id, Guid userId, string name) : base(id)
