@@ -10,5 +10,6 @@ public class ProfileConfigurations : IEntityTypeConfiguration<Profile>
     builder.HasKey(p => p.Id);
     builder.Property(p => p.Name).IsRequired().HasMaxLength(256);
     builder.HasMany(p => p.Wallets).WithOne(w => w.Profile).HasForeignKey(w => w.ProfileId);
+    builder.HasMany(p => p.Units).WithOne(u => u.Profile).HasForeignKey(u => u.ProfileId).IsRequired(false);
   }
 }
