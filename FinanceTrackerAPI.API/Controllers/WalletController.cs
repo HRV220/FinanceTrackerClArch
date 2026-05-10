@@ -7,10 +7,12 @@ using FinanceTrackerAPI.Application.Wallets.Commands.DeleteWallet;
 using FinanceTrackerAPI.Application.Wallets.Commands.RenameWallet;
 using FinanceTrackerAPI.Application.Wallets.Queries.GetWalletById;
 using FinanceTrackerAPI.Application.Wallets.Queries.GetWalletsByProfileId;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinanceTrackerAPI.API.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class WalletController : ControllerBase

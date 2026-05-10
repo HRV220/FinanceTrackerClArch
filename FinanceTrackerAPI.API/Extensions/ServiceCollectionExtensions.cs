@@ -1,5 +1,8 @@
 using FinanceTrackerAPI.Domain.Interfaces;
 using FinanceTrackerAPI.Application.Interfaces;
+using FinanceTrackerAPI.Application.Currencies.Queries.GetAllCurrencies;
+using FinanceTrackerAPI.Application.Currencies.Queries.GetCurrencyById;
+using FinanceTrackerAPI.Application.Currencies.Commands.UpdateCurrencyRate;
 using FinanceTrackerAPI.Application.Users.Commands.LoginUser;
 using FinanceTrackerAPI.Application.Users.Commands.RegisterUser;
 using FinanceTrackerAPI.Application.Users.Commands.DeleteUser;
@@ -100,6 +103,9 @@ public static class ServiceCollectionExtensions
   }
   public static IServiceCollection AddApplication(this IServiceCollection services)
   {
+    services.AddScoped<GetAllCurrenciesQueryHandler>();
+    services.AddScoped<GetCurrencyByIdQueryHandler>();
+    services.AddScoped<UpdateCurrencyRateCommandHandler>();
     services.AddScoped<RegisterUserCommandHandler>();
     services.AddScoped<LoginUserCommandHandler>();
     services.AddScoped<DeleteUserCommandHandler>();

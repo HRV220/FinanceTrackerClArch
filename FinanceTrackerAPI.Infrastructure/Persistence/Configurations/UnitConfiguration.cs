@@ -11,7 +11,7 @@ public class UnitConfiguration : IEntityTypeConfiguration<Unit>
     builder.HasKey(u => u.Id);
     builder.Property(u => u.Name).IsRequired().HasMaxLength(100);
     builder.Property(u => u.ShortName).IsRequired().HasMaxLength(20);
-    builder.HasIndex(u => u.ShortName).IsUnique();
+    builder.HasIndex(u => u.ShortName);
     builder.Property(u => u.IsSystem).IsRequired();
     builder.Property(u => u.ProfileId).IsRequired(false);
   }

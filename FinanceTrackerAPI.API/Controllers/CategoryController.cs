@@ -6,10 +6,12 @@ using FinanceTrackerAPI.Application.Categories.Commands.RenameCategory;
 using FinanceTrackerAPI.Application.Categories.Queries.GetCategoriesByProfileId;
 using FinanceTrackerAPI.Application.Categories.Queries.GetCategoryById;
 using FinanceTrackerAPI.Application.Categories.Queries.GetSystemCategories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinanceTrackerAPI.API.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class CategoryController : ControllerBase

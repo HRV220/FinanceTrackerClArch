@@ -5,10 +5,12 @@ using FinanceTrackerAPI.Application.Credits.Commands.MakePayment;
 using FinanceTrackerAPI.Application.Credits.Commands.RenameCredit;
 using FinanceTrackerAPI.Application.Credits.Queries.GetCreditById;
 using FinanceTrackerAPI.Application.Credits.Queries.GetCreditsByProfileId;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinanceTrackerAPI.API.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class CreditController : ControllerBase

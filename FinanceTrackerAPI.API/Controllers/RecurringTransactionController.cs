@@ -3,10 +3,12 @@ using FinanceTrackerAPI.Application.RecurringTransactions.Commands.DeactivateRec
 using FinanceTrackerAPI.Application.RecurringTransactions.Commands.DeleteRecurringTransaction;
 using FinanceTrackerAPI.Application.RecurringTransactions.Queries.GetRecurringTransactionById;
 using FinanceTrackerAPI.Application.RecurringTransactions.Queries.GetRecurringTransactionsByWalletId;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinanceTrackerAPI.API.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class RecurringTransactionController : ControllerBase

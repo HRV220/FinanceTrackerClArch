@@ -5,10 +5,12 @@ using FinanceTrackerAPI.Application.Deposits.Commands.RenameDeposit;
 using FinanceTrackerAPI.Application.Deposits.Commands.TopUpDeposit;
 using FinanceTrackerAPI.Application.Deposits.Queries.GetDepositById;
 using FinanceTrackerAPI.Application.Deposits.Queries.GetDepositsByProfileId;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinanceTrackerAPI.API.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class DepositController : ControllerBase

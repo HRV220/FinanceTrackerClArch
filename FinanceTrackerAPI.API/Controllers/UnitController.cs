@@ -3,10 +3,12 @@ using FinanceTrackerAPI.Application.Units.Commands.DeleteUnit;
 using FinanceTrackerAPI.Application.Units.Commands.RenameUnit;
 using FinanceTrackerAPI.Application.Units.Queries.GetAllUnits;
 using FinanceTrackerAPI.Application.Units.Queries.GetUnitsByProfileId;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinanceTrackerAPI.API.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class UnitController : ControllerBase

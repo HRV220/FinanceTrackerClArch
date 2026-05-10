@@ -6,10 +6,12 @@ using FinanceTrackerAPI.Application.Debts.Commands.RenameCreditor;
 using FinanceTrackerAPI.Application.Debts.Commands.RepayDebt;
 using FinanceTrackerAPI.Application.Debts.Queries.GetDebtById;
 using FinanceTrackerAPI.Application.Debts.Queries.GetDebtsByProfileId;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinanceTrackerAPI.API.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class DebtController : ControllerBase

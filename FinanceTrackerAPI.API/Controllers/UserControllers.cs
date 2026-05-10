@@ -4,10 +4,12 @@ using FinanceTrackerAPI.Application.Users.Commands.DeleteUser;
 using FinanceTrackerAPI.Application.Users.Commands.LoginUser;
 using FinanceTrackerAPI.Application.Users.Commands.RegisterUser;
 using FinanceTrackerAPI.Application.Users.Queries.GetUserById;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinanceTrackerAPI.API.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class UserController : ControllerBase
@@ -35,6 +37,7 @@ public class UserController : ControllerBase
     _getUserByIdHandler = getUserByIdQueryHandler;
   }
 
+  [AllowAnonymous]
   [HttpPost("register")]
   public async Task<IActionResult> Register([FromBody] RegisterUserCommand command)
   {
@@ -44,6 +47,7 @@ public class UserController : ControllerBase
     return Ok(result.Value);
   }
 
+  [AllowAnonymous]
   [HttpPost("login")]
   public async Task<IActionResult> Login([FromBody] LoginUserCommand command)
   {

@@ -5,10 +5,12 @@ using FinanceTrackerAPI.Application.Transactions.Commands.DeleteTransaction;
 using FinanceTrackerAPI.Application.Transactions.Queries.GetTransactionById;
 using FinanceTrackerAPI.Application.Transactions.Queries.GetTransactionsByWalletId;
 using FinanceTrackerAPI.Application.Transactions.Queries.GetWalletBalance;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinanceTrackerAPI.API.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class TransactionController : ControllerBase

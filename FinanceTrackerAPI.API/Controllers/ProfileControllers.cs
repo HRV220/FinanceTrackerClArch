@@ -4,10 +4,12 @@ using FinanceTrackerAPI.Application.Profiles.Commands.RenameProfile;
 using FinanceTrackerAPI.Application.Profiles.Commands.ToggleProfileActive;
 using FinanceTrackerAPI.Application.Profiles.Queries.GetProfileById;
 using FinanceTrackerAPI.Application.Profiles.Queries.GetProfilesByUserId;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinanceTrackerAPI.API.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class ProfileController : ControllerBase
