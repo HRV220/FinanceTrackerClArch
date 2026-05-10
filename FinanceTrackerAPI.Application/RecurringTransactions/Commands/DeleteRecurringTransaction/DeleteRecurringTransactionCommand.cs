@@ -1,0 +1,3 @@
+namespace FinanceTrackerAPI.Application.RecurringTransactions.Commands.DeleteRecurringTransaction;
+
+public record DeleteRecurringTransactionCommand(Guid Id);

@@ -63,6 +63,11 @@ using FinanceTrackerAPI.Application.Transactions.Commands.ChangeCategory;
 using FinanceTrackerAPI.Application.Transactions.Queries.GetTransactionById;
 using FinanceTrackerAPI.Application.Transactions.Queries.GetTransactionsByWalletId;
 using FinanceTrackerAPI.Application.Transactions.Queries.GetWalletBalance;
+using FinanceTrackerAPI.Application.RecurringTransactions.Commands.CreateRecurringTransaction;
+using FinanceTrackerAPI.Application.RecurringTransactions.Commands.DeleteRecurringTransaction;
+using FinanceTrackerAPI.Application.RecurringTransactions.Commands.DeactivateRecurringTransaction;
+using FinanceTrackerAPI.Application.RecurringTransactions.Queries.GetRecurringTransactionById;
+using FinanceTrackerAPI.Application.RecurringTransactions.Queries.GetRecurringTransactionsByWalletId;
 using FinanceTrackerAPI.Infrastructure.Persistence;
 using FinanceTrackerAPI.Infrastructure.Persistence.Repositories;
 using FinanceTrackerAPI.Infrastructure.Services;
@@ -86,6 +91,7 @@ public static class ServiceCollectionExtensions
     services.AddScoped<IDepositRepository, DepositRepository>();
     services.AddScoped<ICategoryRepository, CategoryRepository>();
     services.AddScoped<ITransactionRepository, TransactionRepository>();
+    services.AddScoped<IRecurringTransactionRepository, RecurringTransactionRepository>();
 
     services.AddScoped<IPasswordHasher, PasswordHasher>();
     services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
@@ -157,6 +163,11 @@ public static class ServiceCollectionExtensions
     services.AddScoped<GetTransactionByIdQueryHandler>();
     services.AddScoped<GetTransactionsByWalletIdQueryHandler>();
     services.AddScoped<GetWalletBalanceQueryHandler>();
+    services.AddScoped<CreateRecurringTransactionCommandHandler>();
+    services.AddScoped<DeleteRecurringTransactionCommandHandler>();
+    services.AddScoped<DeactivateRecurringTransactionCommandHandler>();
+    services.AddScoped<GetRecurringTransactionByIdQueryHandler>();
+    services.AddScoped<GetRecurringTransactionsByWalletIdQueryHandler>();
     return services;
   }
 }

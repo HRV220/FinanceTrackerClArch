@@ -22,10 +22,13 @@ public class GetWalletBalanceQueryHandler
       return Result<GetWalletBalanceResponse>.Failure(new DomainError("Wallet.NotFound", "Wallet not found."));
 
     var transactions = await _transactionRepository.GetByWalletIdAsync(query.WalletId);
+    var incomingTransfers = await _transactionRepository.GetIncomingTransfersByWalletIdAsync(query.WalletId);
 
     var income = transactions.Where(t => t.Type == FinancialType.Income).Sum(t => t.Amount);
     var expense = transactions.Where(t => t.Type == FinancialType.Expense).Sum(t => t.Amount);
-    var balance = wallet.InitialBalance + income - expense;
+    var outgoingTransfers = transactions.Where(t => t.Type == FinancialType.Transfer).Sum(t => t.Amount);
+    var incomingTransfersAmount = incomingTransfers.Sum(t => t.Amount);
+    var balance = wallet.InitialBalance + income - expense - outgoingTransfers + incomingTransfersAmount;
 
     return Result<GetWalletBalanceResponse>.Success(new GetWalletBalanceResponse(query.WalletId, balance));
   }

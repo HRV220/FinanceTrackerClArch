@@ -3,5 +3,6 @@ namespace FinanceTrackerAPI.Domain.Enums;
 public enum FinancialType
 {
   Income,
-  Expense
+  Expense,
+  Transfer
 }

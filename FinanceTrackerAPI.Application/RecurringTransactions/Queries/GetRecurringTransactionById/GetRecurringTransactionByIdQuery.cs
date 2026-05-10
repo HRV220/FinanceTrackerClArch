@@ -1,0 +1,3 @@
+namespace FinanceTrackerAPI.Application.RecurringTransactions.Queries.GetRecurringTransactionById;
+
+public record GetRecurringTransactionByIdQuery(Guid Id);

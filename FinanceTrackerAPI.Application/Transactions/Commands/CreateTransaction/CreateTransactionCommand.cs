@@ -8,4 +8,5 @@ public record CreateTransactionCommand(
   decimal Amount,
   DateOnly Date,
   Guid? CategoryId = null,
-  string? Description = null);
+  string? Description = null,
+  Guid? ToWalletId = null);

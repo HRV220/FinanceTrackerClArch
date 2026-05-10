@@ -14,7 +14,9 @@ public class TransactionConfiguration : IEntityTypeConfiguration<Transaction>
     builder.Property(t => t.Date).IsRequired();
     builder.Property(t => t.Description).IsRequired(false).HasMaxLength(500);
     builder.Property(t => t.CategoryId).IsRequired(false);
-    builder.HasOne(t => t.Wallet).WithMany(w => w.Transactions).HasForeignKey(t => t.WalletId);
+    builder.Property(t => t.ToWalletId).IsRequired(false);
+    builder.HasOne(t => t.Wallet).WithMany(w => w.Transactions).HasForeignKey(t => t.WalletId).OnDelete(DeleteBehavior.Restrict);
+    builder.HasOne(t => t.ToWallet).WithMany().HasForeignKey(t => t.ToWalletId).IsRequired(false).OnDelete(DeleteBehavior.Restrict);
     builder.HasOne(t => t.Category).WithMany().HasForeignKey(t => t.CategoryId).IsRequired(false);
   }
 }

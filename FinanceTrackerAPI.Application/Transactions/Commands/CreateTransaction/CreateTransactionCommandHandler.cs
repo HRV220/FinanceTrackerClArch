@@ -21,8 +21,15 @@ public class CreateTransactionCommandHandler
     if (wallet is null)
       return Result<Guid>.Failure(new DomainError("Transaction.WalletNotFound", "Wallet not found."));
 
-    var (walletId, type, amount, date, categoryId, description) = command;
-    var transaction = Transaction.Create(walletId, type, amount, date, categoryId, description);
+    if (command.ToWalletId.HasValue)
+    {
+      var toWallet = await _walletRepository.GetWalletByIdAsync(command.ToWalletId.Value);
+      if (toWallet is null)
+        return Result<Guid>.Failure(new DomainError("Transaction.DestinationWalletNotFound", "Destination wallet not found."));
+    }
+
+    var (walletId, type, amount, date, categoryId, description, toWalletId) = command;
+    var transaction = Transaction.Create(walletId, type, amount, date, categoryId, description, toWalletId);
 
     if (transaction.IsFailure)
       return Result<Guid>.Failure(transaction.Error!);
