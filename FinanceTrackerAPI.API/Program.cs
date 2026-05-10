@@ -1,6 +1,8 @@
 using System.Text;
 using FinanceTrackerAPI.API.Extensions;
+using FinanceTrackerAPI.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +25,13 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 builder.Services.AddAuthorization();
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+  var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+  await db.Database.MigrateAsync();
+  await DataSeeder.SeedAsync(db);
+}
 
 if (app.Environment.IsDevelopment())
 {
