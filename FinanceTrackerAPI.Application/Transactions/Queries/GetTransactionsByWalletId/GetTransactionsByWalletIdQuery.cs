@@ -1,0 +1,3 @@
+namespace FinanceTrackerAPI.Application.Transactions.Queries.GetTransactionsByWalletId;
+
+public record GetTransactionsByWalletIdQuery(Guid WalletId);

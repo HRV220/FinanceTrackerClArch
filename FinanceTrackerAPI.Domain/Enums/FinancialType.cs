@@ -1,6 +1,6 @@
 namespace FinanceTrackerAPI.Domain.Enums;
 
-public enum CategoryType
+public enum FinancialType
 {
   Income,
   Expense

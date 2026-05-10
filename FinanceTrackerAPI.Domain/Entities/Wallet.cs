@@ -15,6 +15,9 @@ public class Wallet : BaseEntity
   public string? Note { get; private set; } = null;
   public bool IsArchived { get; private set; } = false;
 
+  private readonly List<Transaction> _transactions = new();
+  public IReadOnlyCollection<Transaction> Transactions => _transactions.AsReadOnly();
+
   private Wallet() : base() { }
 
   private Wallet(Guid id, Guid profileId, string name, string? icon, int sortOrder, Guid currencyId, decimal initialBalance, string? note) : base(id)

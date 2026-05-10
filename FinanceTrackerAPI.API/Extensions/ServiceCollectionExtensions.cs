@@ -56,6 +56,13 @@ using FinanceTrackerAPI.Application.Categories.Commands.ChangeIcon;
 using FinanceTrackerAPI.Application.Categories.Queries.GetCategoryById;
 using FinanceTrackerAPI.Application.Categories.Queries.GetCategoriesByProfileId;
 using FinanceTrackerAPI.Application.Categories.Queries.GetSystemCategories;
+using FinanceTrackerAPI.Application.Transactions.Commands.CreateTransaction;
+using FinanceTrackerAPI.Application.Transactions.Commands.DeleteTransaction;
+using FinanceTrackerAPI.Application.Transactions.Commands.ChangeDescription;
+using FinanceTrackerAPI.Application.Transactions.Commands.ChangeCategory;
+using FinanceTrackerAPI.Application.Transactions.Queries.GetTransactionById;
+using FinanceTrackerAPI.Application.Transactions.Queries.GetTransactionsByWalletId;
+using FinanceTrackerAPI.Application.Transactions.Queries.GetWalletBalance;
 using FinanceTrackerAPI.Infrastructure.Persistence;
 using FinanceTrackerAPI.Infrastructure.Persistence.Repositories;
 using FinanceTrackerAPI.Infrastructure.Services;
@@ -78,6 +85,7 @@ public static class ServiceCollectionExtensions
     services.AddScoped<IDebtRepository, DebtRepository>();
     services.AddScoped<IDepositRepository, DepositRepository>();
     services.AddScoped<ICategoryRepository, CategoryRepository>();
+    services.AddScoped<ITransactionRepository, TransactionRepository>();
 
     services.AddScoped<IPasswordHasher, PasswordHasher>();
     services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
@@ -142,6 +150,13 @@ public static class ServiceCollectionExtensions
     services.AddScoped<GetCategoryByIdQueryHandler>();
     services.AddScoped<GetCategoriesByProfileIdQueryHandler>();
     services.AddScoped<GetSystemCategoriesQueryHandler>();
+    services.AddScoped<CreateTransactionCommandHandler>();
+    services.AddScoped<DeleteTransactionCommandHandler>();
+    services.AddScoped<ChangeDescriptionCommandHandler>();
+    services.AddScoped<ChangeCategoryTransactionCommandHandler>();
+    services.AddScoped<GetTransactionByIdQueryHandler>();
+    services.AddScoped<GetTransactionsByWalletIdQueryHandler>();
+    services.AddScoped<GetWalletBalanceQueryHandler>();
     return services;
   }
 }

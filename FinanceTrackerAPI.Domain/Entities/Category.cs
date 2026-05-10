@@ -6,7 +6,7 @@ namespace FinanceTrackerAPI.Domain.Entities;
 public class Category : BaseEntity
 {
   public string Name { get; private set; } = string.Empty;
-  public CategoryType Type { get; private set; }
+  public FinancialType Type { get; private set; }
   public string? Icon { get; private set; }
   public bool IsSystem { get; private set; } = false;
   public Guid? ProfileId { get; private set; }
@@ -14,7 +14,7 @@ public class Category : BaseEntity
 
   private Category() : base() { }
 
-  private Category(Guid id, string name, CategoryType type, string? icon, bool isSystem, Guid? profileId) : base(id)
+  private Category(Guid id, string name, FinancialType type, string? icon, bool isSystem, Guid? profileId) : base(id)
   {
     Name = name;
     Type = type;
@@ -23,7 +23,7 @@ public class Category : BaseEntity
     ProfileId = profileId;
   }
 
-  public static Result<Category> Create(string name, CategoryType type, Guid profileId, string? icon = null)
+  public static Result<Category> Create(string name, FinancialType type, Guid profileId, string? icon = null)
   {
     if (string.IsNullOrWhiteSpace(name))
       return Result<Category>.Failure(new DomainError("Category.InvalidName", "Name is required."));
@@ -34,7 +34,7 @@ public class Category : BaseEntity
     return Result<Category>.Success(new Category(Guid.NewGuid(), name, type, icon, isSystem: false, profileId));
   }
 
-  public static Result<Category> CreateSystem(string name, CategoryType type, string? icon = null)
+  public static Result<Category> CreateSystem(string name, FinancialType type, string? icon = null)
   {
     if (string.IsNullOrWhiteSpace(name))
       return Result<Category>.Failure(new DomainError("Category.InvalidName", "Name is required."));

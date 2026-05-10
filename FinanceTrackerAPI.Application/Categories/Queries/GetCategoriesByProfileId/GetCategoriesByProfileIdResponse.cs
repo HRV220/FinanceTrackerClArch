@@ -5,7 +5,7 @@ namespace FinanceTrackerAPI.Application.Categories.Queries.GetCategoriesByProfil
 public record GetCategoriesByProfileIdResponse(
   Guid Id,
   string Name,
-  CategoryType Type,
+  FinancialType Type,
   string? Icon,
   bool IsSystem,
   Guid? ProfileId);
