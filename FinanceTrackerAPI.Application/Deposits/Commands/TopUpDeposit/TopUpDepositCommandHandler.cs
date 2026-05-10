@@ -1,0 +1,28 @@
+using FinanceTrackerAPI.Domain.Common;
+using FinanceTrackerAPI.Domain.Interfaces;
+
+namespace FinanceTrackerAPI.Application.Deposits.Commands.TopUpDeposit;
+
+public class TopUpDepositCommandHandler
+{
+  private readonly IDepositRepository _depositRepository;
+
+  public TopUpDepositCommandHandler(IDepositRepository depositRepository)
+  {
+    _depositRepository = depositRepository;
+  }
+
+  public async Task<Result<bool>> Handle(TopUpDepositCommand command)
+  {
+    var deposit = await _depositRepository.GetByIdAsync(command.DepositId);
+    if (deposit is null)
+      return Result<bool>.Failure(new DomainError("Deposit.NotFound", "Deposit not found."));
+
+    var result = deposit.TopUp(command.Amount);
+    if (result.IsFailure)
+      return result;
+
+    await _depositRepository.UpdateAsync(deposit);
+    return Result<bool>.Success(true);
+  }
+}

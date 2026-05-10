@@ -41,6 +41,13 @@ using FinanceTrackerAPI.Application.Debts.Commands.ChangeDueDate;
 using FinanceTrackerAPI.Application.Debts.Commands.RepayDebt;
 using FinanceTrackerAPI.Application.Debts.Queries.GetDebtById;
 using FinanceTrackerAPI.Application.Debts.Queries.GetDebtsByProfileId;
+using FinanceTrackerAPI.Application.Deposits.Commands.CreateDeposit;
+using FinanceTrackerAPI.Application.Deposits.Commands.DeleteDeposit;
+using FinanceTrackerAPI.Application.Deposits.Commands.RenameDeposit;
+using FinanceTrackerAPI.Application.Deposits.Commands.TopUpDeposit;
+using FinanceTrackerAPI.Application.Deposits.Commands.CloseDeposit;
+using FinanceTrackerAPI.Application.Deposits.Queries.GetDepositById;
+using FinanceTrackerAPI.Application.Deposits.Queries.GetDepositsByProfileId;
 using FinanceTrackerAPI.Infrastructure.Persistence;
 using FinanceTrackerAPI.Infrastructure.Persistence.Repositories;
 using FinanceTrackerAPI.Infrastructure.Services;
@@ -61,6 +68,7 @@ public static class ServiceCollectionExtensions
     services.AddScoped<IUnitRepository, UnitRepository>();
     services.AddScoped<ICreditRepository, CreditRepository>();
     services.AddScoped<IDebtRepository, DebtRepository>();
+    services.AddScoped<IDepositRepository, DepositRepository>();
 
     services.AddScoped<IPasswordHasher, PasswordHasher>();
     services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
@@ -110,6 +118,13 @@ public static class ServiceCollectionExtensions
     services.AddScoped<RepayDebtCommandHandler>();
     services.AddScoped<GetDebtByIdQueryHandler>();
     services.AddScoped<GetDebtsByProfileIdQueryHandler>();
+    services.AddScoped<CreateDepositCommandHandler>();
+    services.AddScoped<DeleteDepositCommandHandler>();
+    services.AddScoped<RenameDepositCommandHandler>();
+    services.AddScoped<TopUpDepositCommandHandler>();
+    services.AddScoped<CloseDepositCommandHandler>();
+    services.AddScoped<GetDepositByIdQueryHandler>();
+    services.AddScoped<GetDepositsByProfileIdQueryHandler>();
     return services;
   }
 }
