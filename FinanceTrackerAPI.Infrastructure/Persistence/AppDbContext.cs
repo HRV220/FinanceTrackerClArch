@@ -12,6 +12,7 @@ public class AppDbContext : DbContext
   public DbSet<Credit> Credits {get; set;}
   public DbSet<Debt> Debts {get; set;}
   public DbSet<Deposit> Deposits {get; set;}
+  public DbSet<Category> Categories {get; set;}
   public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
   {
   }

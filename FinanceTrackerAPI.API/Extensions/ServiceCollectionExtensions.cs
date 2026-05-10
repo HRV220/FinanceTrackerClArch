@@ -48,6 +48,14 @@ using FinanceTrackerAPI.Application.Deposits.Commands.TopUpDeposit;
 using FinanceTrackerAPI.Application.Deposits.Commands.CloseDeposit;
 using FinanceTrackerAPI.Application.Deposits.Queries.GetDepositById;
 using FinanceTrackerAPI.Application.Deposits.Queries.GetDepositsByProfileId;
+using FinanceTrackerAPI.Application.Categories.Commands.CreateCategory;
+using FinanceTrackerAPI.Application.Categories.Commands.CreateSystemCategory;
+using FinanceTrackerAPI.Application.Categories.Commands.DeleteCategory;
+using FinanceTrackerAPI.Application.Categories.Commands.RenameCategory;
+using FinanceTrackerAPI.Application.Categories.Commands.ChangeIcon;
+using FinanceTrackerAPI.Application.Categories.Queries.GetCategoryById;
+using FinanceTrackerAPI.Application.Categories.Queries.GetCategoriesByProfileId;
+using FinanceTrackerAPI.Application.Categories.Queries.GetSystemCategories;
 using FinanceTrackerAPI.Infrastructure.Persistence;
 using FinanceTrackerAPI.Infrastructure.Persistence.Repositories;
 using FinanceTrackerAPI.Infrastructure.Services;
@@ -69,6 +77,7 @@ public static class ServiceCollectionExtensions
     services.AddScoped<ICreditRepository, CreditRepository>();
     services.AddScoped<IDebtRepository, DebtRepository>();
     services.AddScoped<IDepositRepository, DepositRepository>();
+    services.AddScoped<ICategoryRepository, CategoryRepository>();
 
     services.AddScoped<IPasswordHasher, PasswordHasher>();
     services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
@@ -125,6 +134,14 @@ public static class ServiceCollectionExtensions
     services.AddScoped<CloseDepositCommandHandler>();
     services.AddScoped<GetDepositByIdQueryHandler>();
     services.AddScoped<GetDepositsByProfileIdQueryHandler>();
+    services.AddScoped<CreateCategoryCommandHandler>();
+    services.AddScoped<CreateSystemCategoryCommandHandler>();
+    services.AddScoped<DeleteCategoryCommandHandler>();
+    services.AddScoped<RenameCategoryCommandHandler>();
+    services.AddScoped<ChangeIconCategoryCommandHandler>();
+    services.AddScoped<GetCategoryByIdQueryHandler>();
+    services.AddScoped<GetCategoriesByProfileIdQueryHandler>();
+    services.AddScoped<GetSystemCategoriesQueryHandler>();
     return services;
   }
 }
