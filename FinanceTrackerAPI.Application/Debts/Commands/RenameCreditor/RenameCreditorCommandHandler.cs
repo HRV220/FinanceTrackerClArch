@@ -1,0 +1,28 @@
+using FinanceTrackerAPI.Domain.Common;
+using FinanceTrackerAPI.Domain.Interfaces;
+
+namespace FinanceTrackerAPI.Application.Debts.Commands.RenameCreditor;
+
+public class RenameCreditorCommandHandler
+{
+  private readonly IDebtRepository _debtRepository;
+
+  public RenameCreditorCommandHandler(IDebtRepository debtRepository)
+  {
+    _debtRepository = debtRepository;
+  }
+
+  public async Task<Result<bool>> Handle(RenameCreditorCommand command)
+  {
+    var debt = await _debtRepository.GetByIdAsync(command.Id);
+    if (debt is null)
+      return Result<bool>.Failure(new DomainError("Debt.NotFound", "Debt not found."));
+
+    var result = debt.RenameCreditor(command.NewCreditorName);
+    if (result.IsFailure)
+      return result;
+
+    await _debtRepository.UpdateAsync(debt);
+    return Result<bool>.Success(true);
+  }
+}

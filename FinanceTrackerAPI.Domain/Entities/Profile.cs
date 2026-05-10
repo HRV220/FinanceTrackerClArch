@@ -16,6 +16,9 @@ public class Profile : BaseEntity
   private readonly List<Credit> _credits = new();
   public IReadOnlyCollection<Credit> Credits => _credits.AsReadOnly();
 
+  private readonly List<Debt> _debts = new();
+  public IReadOnlyCollection<Debt> Debts => _debts.AsReadOnly();
+
   private Profile() : base() { }
 
   private Profile(Guid id, Guid userId, string name) : base(id)

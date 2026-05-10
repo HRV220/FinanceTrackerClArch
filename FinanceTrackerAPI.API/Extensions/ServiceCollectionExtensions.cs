@@ -33,6 +33,14 @@ using FinanceTrackerAPI.Application.Credits.Commands.MakePayment;
 using FinanceTrackerAPI.Application.Credits.Commands.CloseCredit;
 using FinanceTrackerAPI.Application.Credits.Queries.GetCreditById;
 using FinanceTrackerAPI.Application.Credits.Queries.GetCreditsByProfileId;
+using FinanceTrackerAPI.Application.Debts.Commands.CreateDebt;
+using FinanceTrackerAPI.Application.Debts.Commands.DeleteDebt;
+using FinanceTrackerAPI.Application.Debts.Commands.RenameCreditor;
+using FinanceTrackerAPI.Application.Debts.Commands.MakePayment;
+using FinanceTrackerAPI.Application.Debts.Commands.ChangeDueDate;
+using FinanceTrackerAPI.Application.Debts.Commands.RepayDebt;
+using FinanceTrackerAPI.Application.Debts.Queries.GetDebtById;
+using FinanceTrackerAPI.Application.Debts.Queries.GetDebtsByProfileId;
 using FinanceTrackerAPI.Infrastructure.Persistence;
 using FinanceTrackerAPI.Infrastructure.Persistence.Repositories;
 using FinanceTrackerAPI.Infrastructure.Services;
@@ -52,6 +60,7 @@ public static class ServiceCollectionExtensions
     services.AddScoped<ICurrencyRepository, CurrencyRepository>();
     services.AddScoped<IUnitRepository, UnitRepository>();
     services.AddScoped<ICreditRepository, CreditRepository>();
+    services.AddScoped<IDebtRepository, DebtRepository>();
 
     services.AddScoped<IPasswordHasher, PasswordHasher>();
     services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
@@ -93,6 +102,14 @@ public static class ServiceCollectionExtensions
     services.AddScoped<CloseCreditCommandHandler>();
     services.AddScoped<GetCreditByIdQueryHandler>();
     services.AddScoped<GetCreditsByProfileIdQueryHandler>();
+    services.AddScoped<CreateDebtCommandHandler>();
+    services.AddScoped<DeleteDebtCommandHandler>();
+    services.AddScoped<RenameCreditorCommandHandler>();
+    services.AddScoped<MakeDebtPaymentCommandHandler>();
+    services.AddScoped<ChangeDueDateCommandHandler>();
+    services.AddScoped<RepayDebtCommandHandler>();
+    services.AddScoped<GetDebtByIdQueryHandler>();
+    services.AddScoped<GetDebtsByProfileIdQueryHandler>();
     return services;
   }
 }
