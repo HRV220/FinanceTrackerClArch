@@ -1,6 +1,17 @@
 <Solution>
+  <Folder Name="/Modules/" />
+  <Folder Name="/Modules/Reports/" />
+  <Folder Name="/Modules/Reports/FinanceTracker.Application/">
+    <Project Path="Modules/Reports/FinanceTracker.Application/Reports.Application.csproj" />
+  </Folder>
+  <Folder Name="/Modules/Reports/FinanceTracker.Domain/">
+    <Project Path="Modules/Reports/FinanceTracker.Domain/Reports.Domain.csproj" />
+  </Folder>
+  <Folder Name="/Modules/Reports/FinanceTracker.Infrastructure/">
+    <Project Path="Modules/Reports/FinanceTracker.Infrastructure/Reports.Infrastructure.csproj" />
+  </Folder>
   <Project Path="FinanceTrackerAPI.API/FinanceTrackerAPI.API.csproj" />
-  <Project Path="FinanceTrackerAPI.Application/FinanceTrackerAPI.Application.csproj" />
-  <Project Path="FinanceTrackerAPI.Domain/FinanceTrackerAPI.Domain.csproj" />
-  <Project Path="FinanceTrackerAPI.Infrastructure/FinanceTrackerAPI.Infrastructure.csproj" />
+  <Project Path="Modules/User/FinanceTrackerAPI.Application/FinanceTrackerAPI.Application.csproj" />
+  <Project Path="Modules/User/FinanceTrackerAPI.Domain/FinanceTrackerAPI.Domain.csproj" />
+  <Project Path="Modules/User/FinanceTrackerAPI.Infrastructure/FinanceTrackerAPI.Infrastructure.csproj" />
 </Solution>

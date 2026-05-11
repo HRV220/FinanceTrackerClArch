@@ -16,8 +16,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FinanceTrackerAPI.Application\FinanceTrackerAPI.Application.csproj" />
-    <ProjectReference Include="..\FinanceTrackerAPI.Infrastructure\FinanceTrackerAPI.Infrastructure.csproj" />
+    <ProjectReference Include="..\Modules\User\FinanceTrackerAPI.Application\FinanceTrackerAPI.Application.csproj" />
+    <ProjectReference Include="..\Modules\User\FinanceTrackerAPI.Infrastructure\FinanceTrackerAPI.Infrastructure.csproj" />
+    <ProjectReference Include="..\Modules\Reports\FinanceTracker.Application\Reports.Application.csproj" />
+    <ProjectReference Include="..\Modules\Reports\FinanceTracker.Infrastructure\Reports.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
