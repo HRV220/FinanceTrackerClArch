@@ -1,15 +1,20 @@
+using Reports.Infrastructure;
+using Reports.Infrastructure.Persistence;
 using System.Text;
 using FinanceTrackerAPI.API.Extensions;
 using FinanceTrackerAPI.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Hangfire;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
+builder.Services.AddReportsModule(builder.Configuration);
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(
     options => options.TokenValidationParameters = new TokenValidationParameters
     {
@@ -31,16 +36,20 @@ using (var scope = app.Services.CreateScope())
   var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
   await db.Database.MigrateAsync();
   await DataSeeder.SeedAsync(db);
+  var reportsDb = scope.ServiceProvider.GetRequiredService<ReportsDbContext>();
+  await reportsDb.Database.MigrateAsync();
 }
 
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.MapScalarApiReference();
 }
 
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseHangfireDashboard("/hangfire");
 app.MapControllers();
 
 app.Run();

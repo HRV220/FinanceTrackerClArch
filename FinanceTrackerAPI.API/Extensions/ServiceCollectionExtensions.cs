@@ -74,6 +74,9 @@ using FinanceTrackerAPI.Application.RecurringTransactions.Queries.GetRecurringTr
 using FinanceTrackerAPI.Infrastructure.Persistence;
 using FinanceTrackerAPI.Infrastructure.Persistence.Repositories;
 using FinanceTrackerAPI.Infrastructure.Services;
+using Reports.Application.Reports.Commands.CreateReport;
+using Reports.Application.Reports.Queries.GetReportStatus;
+using Reports.Application.Reports.Queries.GetReportDownloadUrl;
 using Microsoft.EntityFrameworkCore;
 
 namespace FinanceTrackerAPI.API.Extensions;
@@ -174,6 +177,9 @@ public static class ServiceCollectionExtensions
     services.AddScoped<DeactivateRecurringTransactionCommandHandler>();
     services.AddScoped<GetRecurringTransactionByIdQueryHandler>();
     services.AddScoped<GetRecurringTransactionsByWalletIdQueryHandler>();
+    services.AddScoped<CreateReportCommandHandler>();
+    services.AddScoped<GetReportStatusQueryHandler>();
+    services.AddScoped<GetReportDownloadUrlQueryHandler>();
     return services;
   }
 }
